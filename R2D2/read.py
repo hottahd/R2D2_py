@@ -280,16 +280,19 @@ def init(self, datadir):
             
             f.close()
     # read order data
-    srcdir = datadir[:-5]+'src/all/'
-    if os.path.exists(srcdir+'info.txt'):
-        f = open(srcdir+'info.txt')
-        orders = f.read().split(',')
-        self.p['order_1D'] = int(orders[0])
-        self.p['order_2D'] = int(orders[1])
-        self.p['order_3D'] = int(orders[2])
-    else:
-        order_3D = 1
-        
+    #srcdir = datadir[:-5]+'src/all/'
+    #if os.path.exists(srcdir+'info.txt'):
+    #    f = open(srcdir+'info.txt')
+    #    orders = f.read().split(',')
+    #    self.p['order_1D'] = int(orders[0])
+    #    self.p['order_2D'] = int(orders[1])
+    #    self.p['order_3D'] = int(orders[2])
+    #else:
+    #    order_3D = 1
+    self.p['order_1D'] = 2
+    self.p['order_2D'] = 2
+    self.p['order_3D'] = 4
+    
     # read original data
     if os.path.exists(datadir+'cont_log.txt'):
         f = open(datadir+'cont_log.txt')
@@ -616,7 +619,7 @@ def read_time(self,n,tau=False,silent=True):
     if not silent :
         print('### variales are stored in self.t ###')
 
-    return self.t
+    #return self.t
 ##############################
 def read_vc(self,n,silent=False):
     '''
